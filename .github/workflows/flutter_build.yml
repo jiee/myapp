@@ -1,0 +1,48 @@
+name: Flutter Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    name: Build Flutter App
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1️⃣ 拉取代码
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2️⃣ 安装 Flutter SDK
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.24.0'  # 你项目的 Flutter 版本
+          channel: stable
+
+      # 3️⃣ 拉取依赖
+      - name: Get dependencies
+        run: flutter pub get
+
+      # 4️⃣ 运行测试（可选）
+      - name: Run tests
+        run: flutter test
+
+      # 5️⃣ 编译 Android APK
+      - name: Build Android APK
+        run: flutter build apk --release
+
+      # 6️⃣ 输出 Android 构建产物
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-release-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+
+      # 7️⃣ （可选）构建 iOS
+      - name: Build iOS (no code sign)
+        if: runner.os == 'macOS'
+        run: flutter build ios --release --no-codesign
