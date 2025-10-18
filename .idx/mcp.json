@@ -14,5 +14,26 @@
         "experimental:mcp"
       ]
     }
+  },
+  "enabledTools": {
+    "dart": [
+      "get_runtime_errors",
+      "hot_reload",
+      "get_widget_tree",
+      "get_selected_widget",
+      "set_widget_selection_mode",
+      "get_active_location",
+      "pub_dev_search",
+      "dart_fix",
+      "dart_format",
+      "run_tests",
+      "create_project",
+      "pub",
+      "analyze_files",
+      "resolve_workspace_symbol",
+      "signature_help",
+      "hover"
+    ],
+    "firebase": []
   }
 }
