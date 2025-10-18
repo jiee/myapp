@@ -23,5 +23,9 @@ This document outlines the plan for creating a multi-platform Flutter applicatio
     *   Execute the application using `flutter run`.
 4.  **Inform the User:**
     *   Notify the user that the app is running and should now have a user interface.
+<<<<<<< HEAD
   
 5.  trigger main
+=======
+push
+>>>>>>> 449c233 (push main)
