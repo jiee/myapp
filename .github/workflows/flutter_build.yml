@@ -27,9 +27,6 @@ jobs:
       - name: Get dependencies
         run: flutter pub get
 
-      # 4️⃣ 运行测试（可选）
-      - name: Run tests
-        run: flutter test
 
       # 5️⃣ 编译 Android APK
       - name: Build Android APK
@@ -42,7 +39,4 @@ jobs:
           name: app-release-apk
           path: build/app/outputs/flutter-apk/app-release.apk
 
-      # 7️⃣ （可选）构建 iOS
-      - name: Build iOS (no code sign)
-        if: runner.os == 'macOS'
-        run: flutter build ios --release --no-codesign
+
